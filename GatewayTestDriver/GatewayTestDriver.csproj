@@ -1,0 +1,96 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0AE425B2-8CED-4D7F-B93A-39CD7E321E06}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GatewayTestDriver</RootNamespace>
+    <AssemblyName>GatewayTestDriver</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CDSWrapper.cs" />
+    <Compile Include="GatewayTestDriver.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestParameters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GatewayTestCallee.xml" />
+    <Content Include="GatewayTestCaller.xml" />
+    <Content Include="GatewayTestConfigParams.txt" />
+    <Content Include="GatewayTest_README.txt" />
+    <Content Include="CalleeWav1.wav" />
+    <Content Include="CallerWav2.wav" />
+    <Content Include="CallerWav3.wav" />
+    <Content Include="CallerWav4.wav" />
+    <Content Include="CallerWav5.wav" />
+    <Content Include="CallerWav6.wav" />
+    <Content Include="MapFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GatewayTestCallee.exe.Config" />
+    <None Include="GatewayTestCaller.exe.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\CDSHelper\CDSHelper.csproj">
+      <Project>{340AC5A7-941C-4E3A-8AA5-343888937A56}</Project>
+      <Name>CDSHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GatewayTestLibrary\GatewayTestLibrary.csproj">
+      <Project>{916E0C62-4541-4755-90DA-F8F975BEE59F}</Project>
+      <Name>GatewayTestLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResultAnalyzer\ResultAnalyzer.csproj">
+      <Project>{8F434B7D-2805-45FF-948F-C65E35FE6CEC}</Project>
+      <Name>ResultAnalyzer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)\*.xml $(TargetDir)
+copy $(ProjectDir)\*.wav $(TargetDir)
+copy $(ProjectDir)\*.txt $(TargetDir)
+copy $(ProjectDir)\*.cmd $(TargetDir)
+copy $(ProjectDir)\*.Config $(TargetDir)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

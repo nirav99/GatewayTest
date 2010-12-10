@@ -1,0 +1,6 @@
+CalleeWav1.wav	press1or2
+CallerWav2.wav	georgewashington
+CallerWav3.wav	janetjackson
+CallerWav4.wav	johnsmith
+CallerWav5.wav	lisawhite
+CallerWav6.wav	josephjones

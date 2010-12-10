@@ -1,0 +1,84 @@
+<grammar langid="409">
+  <rule name="GatewayTestCaller" toplevel="active">
+    <l>
+      <ruleref name="r1"/>
+      <ruleref name="r3"/>
+      <ruleref name="r4"/>
+      <ruleref name="r5"/>
+      <ruleref name="r6"/>
+      <ruleref name="r7"/>
+    </l>
+  </rule>
+  <rule name="r7">
+    <l propname="lisawhite">
+      <p>
+        Lisa White
+      </p>
+    </l>
+  </rule>
+  <rule name="r6">
+    <l propname="josephjones">
+      <p>
+        Joesph Jones
+      </p>
+    </l>
+  </rule>
+  <rule name="r5">
+    <l propname="johnsmith">
+      <p>
+        John Smith
+      </p>
+    </l>
+  </rule>
+  <rule name="r4">
+    <l propname="janetjackson">
+      <p>
+        Janet Jackson
+      </p>
+    </l>
+  </rule>
+  <rule name="r3">
+    <l propname="georgewashington">
+      <p>
+        George Washington
+      </p>
+    </l>
+  </rule>
+  <rule name="r1">
+    <l propname="press1or2">
+      <p>
+        Press
+      </p>
+      <p>
+        +one
+      </p>
+      <p>
+        to listen
+      </p>
+      <p>
+        ?to your
+      </p>
+      <p>
+        messages
+      </p>
+      <p>
+        or press
+      </p>
+      <p>
+        +two
+      </p>
+      <p>
+        to change
+      </p>
+      <p>
+        personal
+      </p>
+      <p>
+        options
+      </p>
+    </l>
+    <o>
+      <ruleref name="r1"/>
+    </o>
+  </rule>
+</grammar>

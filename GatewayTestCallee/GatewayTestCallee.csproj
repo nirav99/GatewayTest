@@ -1,0 +1,80 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A21531EF-2F0D-4B05-9F16-5E92416F40AE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GatewayTestCallee</RootNamespace>
+    <AssemblyName>GatewayTestCallee</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Callee.cs" />
+    <Compile Include="CalleeOLD.cs" />
+    <Compile Include="InputValidator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\boston\Microsoft.CSTA\Microsoft.CSTA.Authentication.csproj">
+      <Project>{D9CA54C1-0DBC-44F3-AE06-8F5D58FA2386}</Project>
+      <Name>Microsoft.CSTA.Authentication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\boston\Microsoft.CSTA\Microsoft.CSTA.csproj">
+      <Project>{7A8FC659-7FBA-4432-815D-E7A842C54081}</Project>
+      <Name>Microsoft.CSTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\CDSHelper\CDSHelper.csproj">
+      <Project>{340AC5A7-941C-4E3A-8AA5-343888937A56}</Project>
+      <Name>CDSHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GatewayTestLibrary\GatewayTestLibrary.csproj">
+      <Project>{916E0C62-4541-4755-90DA-F8F975BEE59F}</Project>
+      <Name>GatewayTestLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)..\..\..\..\ext\CreateManifest.js" "$(TargetDir)$(TargetFileName).manifest" /NAME:$(ProjectName) /SAPI:1 /RTC:1</PreBuildEvent>
+  </PropertyGroup>
+</Project>
